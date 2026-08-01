@@ -157,13 +157,13 @@ python reproduce.py --stage tables
 Outputs:
 
 
-| Artifact                     | Path                                    |
-| ---------------------------- | --------------------------------------- |
-| Table I                      | `results/tables/table_i_subsets.*`      |
-| Table II                     | `results/tables/table_ii_performance.*` |
-| Figure 1 (Accuracy)          | `results/figures/figure1_accuracy.png`  |
-| Figure 2 (F-score)           | `results/figures/figure2_fscore.png`    |
-| Comparison to paper Table II | `results/tables/comparison_vs_paper.*`  |
+| Artifact                     | Path                                                                             |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| Table I                      | [results/tables/table_i_subsets.md](results/tables/table_i_subsets.md)           |
+| Table II                     | [results/tables/table_ii_performance.md](results/tables/table_ii_performance.md) |
+| Figure 1 (Accuracy)          | [results/figures/figure1_accuracy.png](results/figures/figure1_accuracy.png)     |
+| Figure 2 (F-score)           | [results/figures/figure2_fscore.png](results/figures/figure2_fscore.png)         |
+| Comparison to paper Table II | [results/tables/comparison_vs_paper.md](results/tables/comparison_vs_paper.md)   |
 
 
 ---
