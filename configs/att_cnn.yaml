@@ -1,0 +1,19 @@
+# Att-CNN hyperparameters (Shen & Huang, COLING 2016)
+model_name: att_cnn
+embedding_dim: 300
+pos_embedding_dim: 10
+position_embedding_dim: 5
+num_pos_tags: 15
+max_position: 100
+max_seq_len: 100
+num_filters: 100
+filter_size: 3
+hidden_dim: 100
+dropout: 0.5
+learning_rate: 0.1
+optimizer: sgd
+batch_size: 50
+epochs: 20
+grad_clip: 5.0
+use_pretrained_embeddings: true
+embedding_name: word2vec-google-news-300

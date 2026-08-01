@@ -1,0 +1,15 @@
+# Att-BiLSTM hyperparameters (Zhou et al., ACL 2016)
+model_name: att_bilstm
+embedding_dim: 100
+hidden_dim: 100
+dropout: 0.5
+learning_rate: 1.0
+optimizer: adadelta
+batch_size: 10
+epochs: 30
+grad_clip: 5.0
+max_seq_len: 100
+use_pretrained_embeddings: true
+embedding_name: word2vec-google-news-300
+# Zhou et al. used 100d word2vec; we project/truncate GoogleNews 300d → 100d
+embedding_project_dim: 100

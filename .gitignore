@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs / temps
+*.log
+*.tmp
+*.bak
+*.cache
+
+# SemEval raw download (auto-fetched by reproduce.py)
+data/raw/*
+!data/raw/.gitkeep
+
+# Regenerable processed corpora / vocabularies
+data/processed/train.json
+data/processed/test.json
+data/processed/vocab/
+data/processed/meta.json
+
+# Keep Algorithm 1 subset index files for exact sampling reproducibility
+!data/processed/subsets/
+!data/processed/subsets/**
+
+# Trained checkpoints (large; regenerate with reproduce.py)
+results/checkpoints/
+
+# Local embedding downloads (gensim / word2vec)
+*.bin
+*.gz
+GoogleNews*
+glove.*
+
+# Regenerable comparison summary
+results/metrics/summary.txt
+
+# Hugging Face / torch local caches (never commit)
+.cache/
+**/lightning_logs/

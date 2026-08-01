@@ -1,0 +1,102 @@
+{
+  "R-BERT": {
+    "SE.1": {
+      "Accuracy": 0.1446,
+      "Precision": 0.0533,
+      "Recall": 0.079,
+      "F-score": 0.0534
+    },
+    "SE.2": {
+      "Accuracy": 0.1756,
+      "Precision": 0.1615,
+      "Recall": 0.079,
+      "F-score": 0.0599
+    },
+    "SE.3": {
+      "Accuracy": 0.286,
+      "Precision": 0.2127,
+      "Recall": 0.1836,
+      "F-score": 0.1675
+    },
+    "SE.4": {
+      "Accuracy": 0.4501,
+      "Precision": 0.4953,
+      "Recall": 0.3246,
+      "F-score": 0.3477
+    },
+    "SE.5": {
+      "Accuracy": 0.6389,
+      "Precision": 0.6704,
+      "Recall": 0.554,
+      "F-score": 0.5731
+    },
+    "SE.6": {
+      "Accuracy": 0.788,
+      "Precision": 0.7655,
+      "Recall": 0.7235,
+      "F-score": 0.7281
+    },
+    "SE.7": {
+      "Accuracy": 0.8289,
+      "Precision": 0.7909,
+      "Recall": 0.7944,
+      "F-score": 0.7906
+    },
+    "SE.8": {
+      "Accuracy": 0.8517,
+      "Precision": 0.8116,
+      "Recall": 0.8274,
+      "F-score": 0.8184
+    }
+  },
+  "MTB": {
+    "SE.1": {
+      "Accuracy": 0.1711,
+      "Precision": 0.0685,
+      "Recall": 0.0923,
+      "F-score": 0.0648
+    },
+    "SE.2": {
+      "Accuracy": 0.1895,
+      "Precision": 0.1629,
+      "Recall": 0.1022,
+      "F-score": 0.0842
+    },
+    "SE.3": {
+      "Accuracy": 0.3795,
+      "Precision": 0.3249,
+      "Recall": 0.2922,
+      "F-score": 0.2743
+    },
+    "SE.4": {
+      "Accuracy": 0.5631,
+      "Precision": 0.5134,
+      "Recall": 0.4854,
+      "F-score": 0.4874
+    },
+    "SE.5": {
+      "Accuracy": 0.7258,
+      "Precision": 0.7199,
+      "Recall": 0.662,
+      "F-score": 0.6757
+    },
+    "SE.6": {
+      "Accuracy": 0.7987,
+      "Precision": 0.7728,
+      "Recall": 0.7535,
+      "F-score": 0.7555
+    },
+    "SE.7": {
+      "Accuracy": 0.8355,
+      "Precision": 0.7983,
+      "Recall": 0.8082,
+      "F-score": 0.8015
+    },
+    "SE.8": {
+      "Accuracy": 0.8583,
+      "Precision": 0.8213,
+      "Recall": 0.838,
+      "F-score": 0.8287
+    }
+  }
+}

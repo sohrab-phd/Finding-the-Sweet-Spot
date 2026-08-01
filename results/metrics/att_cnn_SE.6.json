@@ -1,0 +1,8 @@
+{
+  "model": "att_cnn",
+  "subset": "SE.6",
+  "Accuracy": 0.5926,
+  "Precision": 0.5806,
+  "Recall": 0.5185,
+  "F-score": 0.5398
+}

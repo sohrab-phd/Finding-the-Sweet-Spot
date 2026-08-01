@@ -1,0 +1,8 @@
+{
+  "model": "mtb",
+  "subset": "SE.1",
+  "Accuracy": 0.1711,
+  "Precision": 0.0685,
+  "Recall": 0.0923,
+  "F-score": 0.0648
+}

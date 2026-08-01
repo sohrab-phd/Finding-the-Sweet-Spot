@@ -1,0 +1,1154 @@
+[
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.1",
+    "Reported": 0.22,
+    "Reproduced": 0.1862,
+    "AbsDiff": -0.0338,
+    "PctDiff": -15.36
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.2",
+    "Reported": 0.26,
+    "Reproduced": 0.1921,
+    "AbsDiff": -0.0679,
+    "PctDiff": -26.12
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.3",
+    "Reported": 0.37,
+    "Reproduced": 0.2698,
+    "AbsDiff": -0.1002,
+    "PctDiff": -27.08
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.4",
+    "Reported": 0.48,
+    "Reproduced": 0.3997,
+    "AbsDiff": -0.0803,
+    "PctDiff": -16.73
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.5",
+    "Reported": 0.58,
+    "Reproduced": 0.5267,
+    "AbsDiff": -0.0533,
+    "PctDiff": -9.19
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.6",
+    "Reported": 0.66,
+    "Reproduced": 0.5926,
+    "AbsDiff": -0.0674,
+    "PctDiff": -10.21
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.7",
+    "Reported": 0.73,
+    "Reproduced": 0.6662,
+    "AbsDiff": -0.0638,
+    "PctDiff": -8.74
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Accuracy",
+    "Subset": "SE.8",
+    "Reported": 0.77,
+    "Reproduced": 0.6827,
+    "AbsDiff": -0.0873,
+    "PctDiff": -11.34
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.1",
+    "Reported": 0.21,
+    "Reproduced": 0.0197,
+    "AbsDiff": -0.1903,
+    "PctDiff": -90.62
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.2",
+    "Reported": 0.16,
+    "Reproduced": 0.0659,
+    "AbsDiff": -0.0941,
+    "PctDiff": -58.81
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.3",
+    "Reported": 0.26,
+    "Reproduced": 0.1349,
+    "AbsDiff": -0.1251,
+    "PctDiff": -48.12
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.4",
+    "Reported": 0.41,
+    "Reproduced": 0.3254,
+    "AbsDiff": -0.0846,
+    "PctDiff": -20.63
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.5",
+    "Reported": 0.57,
+    "Reproduced": 0.4823,
+    "AbsDiff": -0.0877,
+    "PctDiff": -15.39
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.6",
+    "Reported": 0.64,
+    "Reproduced": 0.5806,
+    "AbsDiff": -0.0594,
+    "PctDiff": -9.28
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.7",
+    "Reported": 0.74,
+    "Reproduced": 0.6525,
+    "AbsDiff": -0.0875,
+    "PctDiff": -11.82
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Precision",
+    "Subset": "SE.8",
+    "Reported": 0.79,
+    "Reproduced": 0.6845,
+    "AbsDiff": -0.1055,
+    "PctDiff": -13.35
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.1",
+    "Reported": 0.2,
+    "Reproduced": 0.0729,
+    "AbsDiff": -0.1271,
+    "PctDiff": -63.55
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.2",
+    "Reported": 0.25,
+    "Reproduced": 0.0744,
+    "AbsDiff": -0.1756,
+    "PctDiff": -70.24
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.3",
+    "Reported": 0.3,
+    "Reproduced": 0.1593,
+    "AbsDiff": -0.1407,
+    "PctDiff": -46.9
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.4",
+    "Reported": 0.41,
+    "Reproduced": 0.3026,
+    "AbsDiff": -0.1074,
+    "PctDiff": -26.2
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.5",
+    "Reported": 0.59,
+    "Reproduced": 0.4285,
+    "AbsDiff": -0.1615,
+    "PctDiff": -27.37
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.6",
+    "Reported": 0.69,
+    "Reproduced": 0.5185,
+    "AbsDiff": -0.1715,
+    "PctDiff": -24.86
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.7",
+    "Reported": 0.74,
+    "Reproduced": 0.5886,
+    "AbsDiff": -0.1514,
+    "PctDiff": -20.46
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "Recall",
+    "Subset": "SE.8",
+    "Reported": 0.79,
+    "Reproduced": 0.6153,
+    "AbsDiff": -0.1747,
+    "PctDiff": -22.11
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.1",
+    "Reported": 0.16,
+    "Reproduced": 0.031,
+    "AbsDiff": -0.129,
+    "PctDiff": -80.62
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.2",
+    "Reported": 0.19,
+    "Reproduced": 0.0458,
+    "AbsDiff": -0.1442,
+    "PctDiff": -75.89
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.3",
+    "Reported": 0.27,
+    "Reproduced": 0.1165,
+    "AbsDiff": -0.1535,
+    "PctDiff": -56.85
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.4",
+    "Reported": 0.4,
+    "Reproduced": 0.3044,
+    "AbsDiff": -0.0956,
+    "PctDiff": -23.9
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.5",
+    "Reported": 0.56,
+    "Reproduced": 0.434,
+    "AbsDiff": -0.126,
+    "PctDiff": -22.5
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.6",
+    "Reported": 0.66,
+    "Reproduced": 0.5398,
+    "AbsDiff": -0.1202,
+    "PctDiff": -18.21
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.7",
+    "Reported": 0.74,
+    "Reproduced": 0.6017,
+    "AbsDiff": -0.1383,
+    "PctDiff": -18.69
+  },
+  {
+    "Model": "Att-CNN",
+    "Metric": "F-score",
+    "Subset": "SE.8",
+    "Reported": 0.79,
+    "Reproduced": 0.6345,
+    "AbsDiff": -0.1555,
+    "PctDiff": -19.68
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.1",
+    "Reported": 0.3,
+    "Reproduced": 0.1653,
+    "AbsDiff": -0.1347,
+    "PctDiff": -44.9
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.2",
+    "Reported": 0.45,
+    "Reproduced": 0.1943,
+    "AbsDiff": -0.2557,
+    "PctDiff": -56.82
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.3",
+    "Reported": 0.46,
+    "Reproduced": 0.3092,
+    "AbsDiff": -0.1508,
+    "PctDiff": -32.78
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.4",
+    "Reported": 0.6,
+    "Reproduced": 0.3335,
+    "AbsDiff": -0.2665,
+    "PctDiff": -44.42
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.5",
+    "Reported": 0.66,
+    "Reproduced": 0.4424,
+    "AbsDiff": -0.2176,
+    "PctDiff": -32.97
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.6",
+    "Reported": 0.72,
+    "Reproduced": 0.5263,
+    "AbsDiff": -0.1937,
+    "PctDiff": -26.9
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.7",
+    "Reported": 0.75,
+    "Reproduced": 0.6117,
+    "AbsDiff": -0.1383,
+    "PctDiff": -18.44
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Accuracy",
+    "Subset": "SE.8",
+    "Reported": 0.79,
+    "Reproduced": 0.6456,
+    "AbsDiff": -0.1444,
+    "PctDiff": -18.28
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.1",
+    "Reported": 0.34,
+    "Reproduced": 0.0498,
+    "AbsDiff": -0.2902,
+    "PctDiff": -85.35
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.2",
+    "Reported": 0.42,
+    "Reproduced": 0.1244,
+    "AbsDiff": -0.2956,
+    "PctDiff": -70.38
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.3",
+    "Reported": 0.42,
+    "Reproduced": 0.222,
+    "AbsDiff": -0.198,
+    "PctDiff": -47.14
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.4",
+    "Reported": 0.59,
+    "Reproduced": 0.2754,
+    "AbsDiff": -0.3146,
+    "PctDiff": -53.32
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.5",
+    "Reported": 0.65,
+    "Reproduced": 0.387,
+    "AbsDiff": -0.263,
+    "PctDiff": -40.46
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.6",
+    "Reported": 0.7,
+    "Reproduced": 0.4779,
+    "AbsDiff": -0.2221,
+    "PctDiff": -31.73
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.7",
+    "Reported": 0.76,
+    "Reproduced": 0.5822,
+    "AbsDiff": -0.1778,
+    "PctDiff": -23.39
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Precision",
+    "Subset": "SE.8",
+    "Reported": 0.81,
+    "Reproduced": 0.6268,
+    "AbsDiff": -0.1832,
+    "PctDiff": -22.62
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.1",
+    "Reported": 0.33,
+    "Reproduced": 0.1031,
+    "AbsDiff": -0.2269,
+    "PctDiff": -68.76
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.2",
+    "Reported": 0.39,
+    "Reproduced": 0.1198,
+    "AbsDiff": -0.2702,
+    "PctDiff": -69.28
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.3",
+    "Reported": 0.42,
+    "Reproduced": 0.2186,
+    "AbsDiff": -0.2014,
+    "PctDiff": -47.95
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.4",
+    "Reported": 0.6,
+    "Reproduced": 0.2635,
+    "AbsDiff": -0.3365,
+    "PctDiff": -56.08
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.5",
+    "Reported": 0.73,
+    "Reproduced": 0.3406,
+    "AbsDiff": -0.3894,
+    "PctDiff": -53.34
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.6",
+    "Reported": 0.76,
+    "Reproduced": 0.4227,
+    "AbsDiff": -0.3373,
+    "PctDiff": -44.38
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.7",
+    "Reported": 0.77,
+    "Reproduced": 0.557,
+    "AbsDiff": -0.213,
+    "PctDiff": -27.66
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "Recall",
+    "Subset": "SE.8",
+    "Reported": 0.8,
+    "Reproduced": 0.5961,
+    "AbsDiff": -0.2039,
+    "PctDiff": -25.49
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.1",
+    "Reported": 0.25,
+    "Reproduced": 0.0549,
+    "AbsDiff": -0.1951,
+    "PctDiff": -78.04
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.2",
+    "Reported": 0.37,
+    "Reproduced": 0.1075,
+    "AbsDiff": -0.2625,
+    "PctDiff": -70.95
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.3",
+    "Reported": 0.38,
+    "Reproduced": 0.2111,
+    "AbsDiff": -0.1689,
+    "PctDiff": -44.45
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.4",
+    "Reported": 0.57,
+    "Reproduced": 0.2594,
+    "AbsDiff": -0.3106,
+    "PctDiff": -54.49
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.5",
+    "Reported": 0.65,
+    "Reproduced": 0.3531,
+    "AbsDiff": -0.2969,
+    "PctDiff": -45.68
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.6",
+    "Reported": 0.71,
+    "Reproduced": 0.4419,
+    "AbsDiff": -0.2681,
+    "PctDiff": -37.76
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.7",
+    "Reported": 0.75,
+    "Reproduced": 0.5636,
+    "AbsDiff": -0.1864,
+    "PctDiff": -24.85
+  },
+  {
+    "Model": "Att-BiLSTM",
+    "Metric": "F-score",
+    "Subset": "SE.8",
+    "Reported": 0.8,
+    "Reproduced": 0.6062,
+    "AbsDiff": -0.1938,
+    "PctDiff": -24.23
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.1",
+    "Reported": 0.2,
+    "Reproduced": 0.1446,
+    "AbsDiff": -0.0554,
+    "PctDiff": -27.7
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.2",
+    "Reported": 0.26,
+    "Reproduced": 0.1756,
+    "AbsDiff": -0.0844,
+    "PctDiff": -32.46
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.3",
+    "Reported": 0.41,
+    "Reproduced": 0.286,
+    "AbsDiff": -0.124,
+    "PctDiff": -30.24
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.4",
+    "Reported": 0.65,
+    "Reproduced": 0.4501,
+    "AbsDiff": -0.1999,
+    "PctDiff": -30.75
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.5",
+    "Reported": 0.73,
+    "Reproduced": 0.6389,
+    "AbsDiff": -0.0911,
+    "PctDiff": -12.48
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.6",
+    "Reported": 0.79,
+    "Reproduced": 0.788,
+    "AbsDiff": -0.002,
+    "PctDiff": -0.25
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.7",
+    "Reported": 0.82,
+    "Reproduced": 0.8289,
+    "AbsDiff": 0.0089,
+    "PctDiff": 1.09
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Accuracy",
+    "Subset": "SE.8",
+    "Reported": 0.84,
+    "Reproduced": 0.8517,
+    "AbsDiff": 0.0117,
+    "PctDiff": 1.39
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.1",
+    "Reported": 0.24,
+    "Reproduced": 0.0533,
+    "AbsDiff": -0.1867,
+    "PctDiff": -77.79
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.2",
+    "Reported": 0.26,
+    "Reproduced": 0.1615,
+    "AbsDiff": -0.0985,
+    "PctDiff": -37.88
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.3",
+    "Reported": 0.34,
+    "Reproduced": 0.2127,
+    "AbsDiff": -0.1273,
+    "PctDiff": -37.44
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.4",
+    "Reported": 0.65,
+    "Reproduced": 0.4953,
+    "AbsDiff": -0.1547,
+    "PctDiff": -23.8
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.5",
+    "Reported": 0.71,
+    "Reproduced": 0.6704,
+    "AbsDiff": -0.0396,
+    "PctDiff": -5.58
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.6",
+    "Reported": 0.75,
+    "Reproduced": 0.7655,
+    "AbsDiff": 0.0155,
+    "PctDiff": 2.07
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.7",
+    "Reported": 0.77,
+    "Reproduced": 0.7909,
+    "AbsDiff": 0.0209,
+    "PctDiff": 2.71
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Precision",
+    "Subset": "SE.8",
+    "Reported": 0.79,
+    "Reproduced": 0.8116,
+    "AbsDiff": 0.0216,
+    "PctDiff": 2.73
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.1",
+    "Reported": 0.13,
+    "Reproduced": 0.079,
+    "AbsDiff": -0.051,
+    "PctDiff": -39.23
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.2",
+    "Reported": 0.12,
+    "Reproduced": 0.079,
+    "AbsDiff": -0.041,
+    "PctDiff": -34.17
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.3",
+    "Reported": 0.28,
+    "Reproduced": 0.1836,
+    "AbsDiff": -0.0964,
+    "PctDiff": -34.43
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.4",
+    "Reported": 0.56,
+    "Reproduced": 0.3246,
+    "AbsDiff": -0.2354,
+    "PctDiff": -42.04
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.5",
+    "Reported": 0.69,
+    "Reproduced": 0.554,
+    "AbsDiff": -0.136,
+    "PctDiff": -19.71
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.6",
+    "Reported": 0.77,
+    "Reproduced": 0.7235,
+    "AbsDiff": -0.0465,
+    "PctDiff": -6.04
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.7",
+    "Reported": 0.81,
+    "Reproduced": 0.7944,
+    "AbsDiff": -0.0156,
+    "PctDiff": -1.93
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "Recall",
+    "Subset": "SE.8",
+    "Reported": 0.83,
+    "Reproduced": 0.8274,
+    "AbsDiff": -0.0026,
+    "PctDiff": -0.31
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.1",
+    "Reported": 0.07,
+    "Reproduced": 0.0534,
+    "AbsDiff": -0.0166,
+    "PctDiff": -23.71
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.2",
+    "Reported": 0.11,
+    "Reproduced": 0.0599,
+    "AbsDiff": -0.0501,
+    "PctDiff": -45.55
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.3",
+    "Reported": 0.27,
+    "Reproduced": 0.1675,
+    "AbsDiff": -0.1025,
+    "PctDiff": -37.96
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.4",
+    "Reported": 0.54,
+    "Reproduced": 0.3477,
+    "AbsDiff": -0.1923,
+    "PctDiff": -35.61
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.5",
+    "Reported": 0.69,
+    "Reproduced": 0.5731,
+    "AbsDiff": -0.1169,
+    "PctDiff": -16.94
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.6",
+    "Reported": 0.76,
+    "Reproduced": 0.7281,
+    "AbsDiff": -0.0319,
+    "PctDiff": -4.2
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.7",
+    "Reported": 0.79,
+    "Reproduced": 0.7906,
+    "AbsDiff": 0.0006,
+    "PctDiff": 0.08
+  },
+  {
+    "Model": "R-BERT",
+    "Metric": "F-score",
+    "Subset": "SE.8",
+    "Reported": 0.81,
+    "Reproduced": 0.8184,
+    "AbsDiff": 0.0084,
+    "PctDiff": 1.04
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.1",
+    "Reported": 0.19,
+    "Reproduced": 0.1711,
+    "AbsDiff": -0.0189,
+    "PctDiff": -9.95
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.2",
+    "Reported": 0.22,
+    "Reproduced": 0.1895,
+    "AbsDiff": -0.0305,
+    "PctDiff": -13.86
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.3",
+    "Reported": 0.38,
+    "Reproduced": 0.3795,
+    "AbsDiff": -0.0005,
+    "PctDiff": -0.13
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.4",
+    "Reported": 0.59,
+    "Reproduced": 0.5631,
+    "AbsDiff": -0.0269,
+    "PctDiff": -4.56
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.5",
+    "Reported": 0.71,
+    "Reproduced": 0.7258,
+    "AbsDiff": 0.0158,
+    "PctDiff": 2.23
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.6",
+    "Reported": 0.78,
+    "Reproduced": 0.7987,
+    "AbsDiff": 0.0187,
+    "PctDiff": 2.4
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.7",
+    "Reported": 0.83,
+    "Reproduced": 0.8355,
+    "AbsDiff": 0.0055,
+    "PctDiff": 0.66
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Accuracy",
+    "Subset": "SE.8",
+    "Reported": 0.85,
+    "Reproduced": 0.8583,
+    "AbsDiff": 0.0083,
+    "PctDiff": 0.98
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.1",
+    "Reported": 0.19,
+    "Reproduced": 0.0685,
+    "AbsDiff": -0.1215,
+    "PctDiff": -63.95
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.2",
+    "Reported": 0.23,
+    "Reproduced": 0.1629,
+    "AbsDiff": -0.0671,
+    "PctDiff": -29.17
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.3",
+    "Reported": 0.32,
+    "Reproduced": 0.3249,
+    "AbsDiff": 0.0049,
+    "PctDiff": 1.53
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.4",
+    "Reported": 0.58,
+    "Reproduced": 0.5134,
+    "AbsDiff": -0.0666,
+    "PctDiff": -11.48
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.5",
+    "Reported": 0.69,
+    "Reproduced": 0.7199,
+    "AbsDiff": 0.0299,
+    "PctDiff": 4.33
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.6",
+    "Reported": 0.74,
+    "Reproduced": 0.7728,
+    "AbsDiff": 0.0328,
+    "PctDiff": 4.43
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.7",
+    "Reported": 0.76,
+    "Reproduced": 0.7983,
+    "AbsDiff": 0.0383,
+    "PctDiff": 5.04
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Precision",
+    "Subset": "SE.8",
+    "Reported": 0.79,
+    "Reproduced": 0.8213,
+    "AbsDiff": 0.0313,
+    "PctDiff": 3.96
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.1",
+    "Reported": 0.11,
+    "Reproduced": 0.0923,
+    "AbsDiff": -0.0177,
+    "PctDiff": -16.09
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.2",
+    "Reported": 0.12,
+    "Reproduced": 0.1022,
+    "AbsDiff": -0.0178,
+    "PctDiff": -14.83
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.3",
+    "Reported": 0.25,
+    "Reproduced": 0.2922,
+    "AbsDiff": 0.0422,
+    "PctDiff": 16.88
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.4",
+    "Reported": 0.51,
+    "Reproduced": 0.4854,
+    "AbsDiff": -0.0246,
+    "PctDiff": -4.82
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.5",
+    "Reported": 0.66,
+    "Reproduced": 0.662,
+    "AbsDiff": 0.002,
+    "PctDiff": 0.3
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.6",
+    "Reported": 0.73,
+    "Reproduced": 0.7535,
+    "AbsDiff": 0.0235,
+    "PctDiff": 3.22
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.7",
+    "Reported": 0.78,
+    "Reproduced": 0.8082,
+    "AbsDiff": 0.0282,
+    "PctDiff": 3.62
+  },
+  {
+    "Model": "MTB",
+    "Metric": "Recall",
+    "Subset": "SE.8",
+    "Reported": 0.8,
+    "Reproduced": 0.838,
+    "AbsDiff": 0.038,
+    "PctDiff": 4.75
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.1",
+    "Reported": 0.03,
+    "Reproduced": 0.0648,
+    "AbsDiff": 0.0348,
+    "PctDiff": 116.0
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.2",
+    "Reported": 0.09,
+    "Reproduced": 0.0842,
+    "AbsDiff": -0.0058,
+    "PctDiff": -6.44
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.3",
+    "Reported": 0.2,
+    "Reproduced": 0.2743,
+    "AbsDiff": 0.0743,
+    "PctDiff": 37.15
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.4",
+    "Reported": 0.51,
+    "Reproduced": 0.4874,
+    "AbsDiff": -0.0226,
+    "PctDiff": -4.43
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.5",
+    "Reported": 0.67,
+    "Reproduced": 0.6757,
+    "AbsDiff": 0.0057,
+    "PctDiff": 0.85
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.6",
+    "Reported": 0.74,
+    "Reproduced": 0.7555,
+    "AbsDiff": 0.0155,
+    "PctDiff": 2.09
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.7",
+    "Reported": 0.78,
+    "Reproduced": 0.8015,
+    "AbsDiff": 0.0215,
+    "PctDiff": 2.76
+  },
+  {
+    "Model": "MTB",
+    "Metric": "F-score",
+    "Subset": "SE.8",
+    "Reported": 0.8,
+    "Reproduced": 0.8287,
+    "AbsDiff": 0.0287,
+    "PctDiff": 3.59
+  }
+]

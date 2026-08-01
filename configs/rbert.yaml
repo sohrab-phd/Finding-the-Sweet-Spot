@@ -1,0 +1,16 @@
+# R-BERT hyperparameters (Wu & He, CIKM 2019; monologg/R-BERT defaults)
+model_name: rbert
+pretrained_model: bert-base-uncased
+max_seq_len: 128
+dropout: 0.1
+learning_rate: 2.0e-5
+optimizer: adamw
+weight_decay: 0.01
+batch_size: 16
+epochs: 5
+grad_clip: 1.0
+warmup_ratio: 0.1
+entity_marker_e1_start: "[E1]"
+entity_marker_e1_end: "[/E1]"
+entity_marker_e2_start: "[E2]"
+entity_marker_e2_end: "[/E2]"

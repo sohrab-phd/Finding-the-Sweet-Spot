@@ -1,0 +1,8 @@
+{
+  "model": "att_bilstm",
+  "subset": "SE.5",
+  "Accuracy": 0.4424,
+  "Precision": 0.387,
+  "Recall": 0.3406,
+  "F-score": 0.3531
+}

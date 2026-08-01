@@ -1,0 +1,8 @@
+{
+  "model": "rbert",
+  "subset": "SE.8",
+  "Accuracy": 0.8517,
+  "Precision": 0.8116,
+  "Recall": 0.8274,
+  "F-score": 0.8184
+}
