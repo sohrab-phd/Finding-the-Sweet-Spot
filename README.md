@@ -8,9 +8,11 @@ Official code for the paper:
 
 This repository implements the experimental pipeline used in the paper: dataset partitioning into eight training subsets (SE.1–SE.8), training of four relation extraction models, and evaluation with Accuracy, Precision, Recall, and F-score.
 
-A PDF copy of the paper is included as [`paper.pdf`](paper.pdf).
+A PDF copy of the paper is included as `[paper.pdf](paper.pdf)`.
 
 ---
+
+
 
 ## Citation
 
@@ -19,15 +21,17 @@ If you use this code or refer to the study, please cite:
 ```bibtex
 @article{pirhadi2024sweetspot,
   title={Finding the Sweet Spot: An Empirical Study on Dataset Size, Performance, and Efficiency in Relation Extraction},
-  author={Pirhadi, Sohrab and Niroomand, Babak and Ansari, Ebrahim},
-  journal={arXiv preprint},
-  year={2024}
+  author={Sohrab Pirhadi, Babab Niroomand,Ebrahim Ansari},
+  journal={IEEE},
+  year={2025}
 }
 ```
 
 Please also cite the original model and dataset papers listed in the Acknowledgements.
 
 ---
+
+
 
 ## Requirements
 
@@ -52,6 +56,8 @@ python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 
 ---
 
+
+
 ## Dataset Preparation
 
 The SemEval-2010 Task 8 corpus is downloaded and parsed automatically:
@@ -69,33 +75,41 @@ This step:
 
 Subset sizes follow Table I of the paper:
 
+
 | Subset | Portion | Instances |
-|--------|---------|-----------|
-| SE.1 | 1/128 | 62 |
-| SE.2 | 1/64 | 125 |
-| SE.3 | 1/32 | 250 |
-| SE.4 | 1/16 | 500 |
-| SE.5 | 1/8 | 1,000 |
-| SE.6 | 1/4 | 2,000 |
-| SE.7 | 1/2 | 4,000 |
-| SE.8 | 1 | 8,000 |
+| ------ | ------- | --------- |
+| SE.1   | 1/128   | 62        |
+| SE.2   | 1/64    | 125       |
+| SE.3   | 1/32    | 250       |
+| SE.4   | 1/16    | 500       |
+| SE.5   | 1/8     | 1,000     |
+| SE.6   | 1/4     | 2,000     |
+| SE.7   | 1/2     | 4,000     |
+| SE.8   | 1       | 8,000     |
+
 
 Word embeddings for Att-CNN / Att-BiLSTM are loaded via `gensim` (`word2vec-google-news-300`) on first use.
 
 ---
 
+
+
 ## Models
 
-| Model | Description | Module |
-|-------|-------------|--------|
-| Att-CNN | Attention-based CNN (Shen & Huang, COLING 2016) | `models/att_cnn.py` |
-| Att-BiLSTM | Attention-based BiLSTM (Zhou et al., ACL 2016) | `models/att_bilstm.py` |
-| R-BERT | Entity-aware BERT (Wu & He, CIKM 2019) | `models/rbert.py` |
-| MTB | BERT entity markers / supervised MTB head (Soares et al., ACL 2019) | `models/mtb.py` |
+
+| Model      | Description                                                         | Module                 |
+| ---------- | ------------------------------------------------------------------- | ---------------------- |
+| Att-CNN    | Attention-based CNN (Shen & Huang, COLING 2016)                     | `models/att_cnn.py`    |
+| Att-BiLSTM | Attention-based BiLSTM (Zhou et al., ACL 2016)                      | `models/att_bilstm.py` |
+| R-BERT     | Entity-aware BERT (Wu & He, CIKM 2019)                              | `models/rbert.py`      |
+| MTB        | BERT entity markers / supervised MTB head (Soares et al., ACL 2019) | `models/mtb.py`        |
+
 
 Hyperparameters are specified in `configs/`.
 
 ---
+
+
 
 ## Training
 
@@ -114,17 +128,21 @@ python reproduce.py --stage train --models att_cnn att_bilstm
 
 Useful flags:
 
-| Flag | Meaning |
-|------|---------|
-| `--device cuda` | Use GPU (default) |
-| `--device cpu` | Force CPU |
-| `--seed 42` | Global random seed |
-| `--quick` | Fewer epochs (debug only) |
+
+| Flag                | Meaning                          |
+| ------------------- | -------------------------------- |
+| `--device cuda`     | Use GPU (default)                |
+| `--device cpu`      | Force CPU                        |
+| `--seed 42`         | Global random seed               |
+| `--quick`           | Fewer epochs (debug only)        |
 | `--skip-embeddings` | Random word vectors (debug only) |
+
 
 Checkpoints are written to `results/checkpoints/` (gitignored).
 
 ---
+
+
 
 ## Evaluation
 
@@ -138,15 +156,19 @@ python reproduce.py --stage tables
 
 Outputs:
 
-| Artifact | Path |
-|----------|------|
-| Table I | `results/tables/table_i_subsets.*` |
-| Table II | `results/tables/table_ii_performance.*` |
-| Figure 1 (Accuracy) | `results/figures/figure1_accuracy.png` |
-| Figure 2 (F-score) | `results/figures/figure2_fscore.png` |
-| Comparison to paper Table II | `results/tables/comparison_vs_paper.*` |
+
+| Artifact                     | Path                                    |
+| ---------------------------- | --------------------------------------- |
+| Table I                      | `results/tables/table_i_subsets.*`      |
+| Table II                     | `results/tables/table_ii_performance.*` |
+| Figure 1 (Accuracy)          | `results/figures/figure1_accuracy.png`  |
+| Figure 2 (F-score)           | `results/figures/figure2_fscore.png`    |
+| Comparison to paper Table II | `results/tables/comparison_vs_paper.*`  |
+
 
 ---
+
+
 
 ## Full Reproduction
 
@@ -161,6 +183,8 @@ A full run (4 models × 8 subsets) typically takes several hours on a modern NVI
 Published metric JSON files and regenerated tables/figures are included under `results/` so readers can inspect outputs without retraining.
 
 ---
+
+
 
 ## Repository Structure
 
@@ -186,6 +210,8 @@ Published metric JSON files and regenerated tables/figures are included under `r
 
 ---
 
+
+
 ## Reproducibility Notes
 
 - Default random seed: **42** (`configs/default.yaml`)
@@ -194,6 +220,8 @@ Published metric JSON files and regenerated tables/figures are included under `r
 - MTB in this codebase fine-tunes BERT with entity-marker inputs (BERT EM). Full unsupervised Matching-the-Blanks pretraining on entity-linked Wikipedia is not included
 
 ---
+
+
 
 ## Acknowledgements
 
@@ -209,7 +237,9 @@ We thank the authors of the open-source reference implementations that informed 
 
 ---
 
+
+
 ## License
 
-This code is released under the MIT License. See [`LICENSE`](LICENSE).
+This code is released under the MIT License. See `[LICENSE](LICENSE)`.
 The SemEval-2010 Task 8 dataset remains subject to its original distribution terms.
