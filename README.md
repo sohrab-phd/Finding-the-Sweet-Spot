@@ -158,12 +158,13 @@ Green dotted line marks training fraction 0.5 (diminishing-returns threshold use
 ## Citation
 
 ```bibtex
-@article{pirhadi2025sweetspot,
-  title={Finding the Sweet Spot: An Empirical Study on Dataset Size, Performance, and Efficiency in Relation Extraction},
+@INPROCEEDINGS{10967456,
   author={Pirhadi, Sohrab and Niroomand, Babak and Ansari, Ebrahim},
-  journal={IEEE},
-  year={2025}
-}
+  booktitle={2025 29th International Computer Conference, Computer Society of Iran (CSICC)}, 
+  title={Finding the Sweet Spot: An Empirical Study on Dataset Size, Performance, and Efficiency in Relation Extraction}, 
+  year={2025},
+  doi={10.1109/CSICC65765.2025.10967456}}
+
 ```
 
 Please also cite SemEval-2010 Task 8 and the original Att-CNN, Att-BiLSTM, R-BERT, and MTB papers.
