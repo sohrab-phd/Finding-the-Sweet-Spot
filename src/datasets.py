@@ -1,4 +1,4 @@
-"""SemEval-2010 Task 8 download, parsing, and Algorithm 1 subset partitioning."""
+"""SemEval-2010 Task 8 download, parse, and subset sampling."""
 
 from __future__ import annotations
 
@@ -22,7 +22,6 @@ from src.utils import (
 
 logger = logging.getLogger(__name__)
 
-# Community mirror commonly used by RE reproductions
 SEMEVAL_ZIP_URLS = [
     "https://github.com/sahitya0000/Relation-Classification/raw/master/corpus/SemEval2010_task8_all_data.zip",
     "https://raw.githubusercontent.com/sahitya0000/Relation-Classification/master/corpus/SemEval2010_task8_all_data.zip",
@@ -45,7 +44,6 @@ def _find_member(names: Sequence[str], candidates: Sequence[str]) -> Optional[st
     for c in candidates:
         if c in name_set:
             return c
-    # fuzzy: endswith
     for c in candidates:
         suffix = c.split("/")[-1]
         for n in names:
@@ -84,7 +82,7 @@ def download_semeval(raw_dir: Optional[Path] = None) -> Path:
                 zip_path.write_bytes(resp.content)
                 last_err = None
                 break
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 last_err = exc
                 logger.warning("Download failed for %s: %s", url, exc)
         if last_err is not None and not zip_path.exists():
@@ -273,7 +271,7 @@ def prepare_dataset(
     subset_fractions: Optional[Dict[str, float]] = None,
     subset_sizes: Optional[Dict[str, int]] = None,
 ) -> Dict:
-    """Download, parse, partition (Algorithm 1), and save processed data."""
+    """Download SemEval, parse, sample SE.1–SE.8, write processed data."""
     raw_dir = Path(raw_dir or PROJECT_ROOT / "data" / "raw")
     processed_dir = Path(processed_dir or PROJECT_ROOT / "data" / "processed")
     ensure_dirs(processed_dir, processed_dir / "subsets")
@@ -322,10 +320,10 @@ def create_subsets(
     out_dir: Optional[Path] = None,
 ) -> Dict[str, List[int]]:
     """
-    Algorithm 1 — Dataset Partitioning for Incremental Evaluation.
+    Sample training subsets SE.1–SE.8 (paper Algorithm 1).
 
-    For each fraction X in [1/128, ..., 1], draw a uniformly random sample of
-    size X * |SE| from the training set, with a fixed random seed.
+    For each fraction in {1/128, …, 1}, draw a uniform sample of that size
+    from the training set with a fixed seed. Samples are independent.
     """
     if subset_fractions is None:
         subset_fractions = {
@@ -338,12 +336,10 @@ def create_subsets(
             "SE.7": 1 / 2,
             "SE.8": 1.0,
         }
-    # Prefer explicit Table I sizes when provided
     if subset_sizes is None:
         subset_sizes = {
             name: int(round(frac * n_train)) for name, frac in subset_fractions.items()
         }
-        # Force Table I published counts when n_train == 8000
         if n_train == 8000:
             subset_sizes = {
                 "SE.1": 62,
@@ -364,7 +360,6 @@ def create_subsets(
 
     for name in sorted(subset_fractions.keys(), key=lambda x: subset_fractions[x]):
         size = min(int(subset_sizes[name]), n_train)
-        # Independent uniform sample per Algorithm 1
         chosen = rng.choice(all_indices, size=size, replace=False)
         chosen_list = sorted(int(i) for i in chosen)
         subsets[name] = chosen_list

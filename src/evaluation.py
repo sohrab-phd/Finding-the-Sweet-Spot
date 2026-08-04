@@ -1,4 +1,4 @@
-"""Evaluation metrics, table export, and comparison vs paper-reported numbers."""
+"""Metrics, Table I/II export, and diffs against paper numbers."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from src.utils import PROJECT_ROOT, ensure_dirs, save_json
 
 logger = logging.getLogger(__name__)
 
-# Paper Table II reported values
+# Values from paper Table II
 PAPER_TABLE_II: Dict[str, Dict[str, Dict[str, float]]] = {
     "Att-CNN": {
         "Accuracy": {"SE.1": 0.22, "SE.2": 0.26, "SE.3": 0.37, "SE.4": 0.48, "SE.5": 0.58, "SE.6": 0.66, "SE.7": 0.73, "SE.8": 0.77},
@@ -87,7 +87,7 @@ def export_table_i(
     subset_sizes: Dict[str, int],
     out_dir: Optional[Path] = None,
 ) -> pd.DataFrame:
-    """Regenerate Table I."""
+    """Write Table I (subset sizes)."""
     out_dir = Path(out_dir or PROJECT_ROOT / "results" / "tables")
     ensure_dirs(out_dir)
     fractions = {
@@ -110,16 +110,12 @@ def export_table_i(
             }
         )
     df = pd.DataFrame(rows)
-    _write_table(df, out_dir / "table_i_subsets")
+    _write_table(df, out_dir / "table1_subsets")
     return df
 
 
 def metrics_dict_to_table_ii(all_metrics: Dict[str, Dict[str, Dict[str, float]]]) -> pd.DataFrame:
-    """
-    Build Table II-style dataframe.
-
-    all_metrics: {display_model: {subset: {Accuracy, Precision, Recall, F-score}}}
-    """
+    """Flatten nested metrics into a Table II dataframe."""
     rows = []
     for model in ["Att-CNN", "Att-BiLSTM", "R-BERT", "MTB"]:
         if model not in all_metrics:
@@ -140,12 +136,12 @@ def export_table_ii(
     out_dir = Path(out_dir or PROJECT_ROOT / "results" / "tables")
     ensure_dirs(out_dir)
     df = metrics_dict_to_table_ii(all_metrics)
-    _write_table(df, out_dir / "table_ii_performance")
+    _write_table(df, out_dir / "table2_performance")
     return df
 
 
 def export_paper_table_ii(out_dir: Optional[Path] = None) -> pd.DataFrame:
-    """Export the paper-reported Table II for reference / comparison."""
+    """Write paper Table II numbers for reference."""
     out_dir = Path(out_dir or PROJECT_ROOT / "results" / "tables")
     ensure_dirs(out_dir)
     nested = {
@@ -156,7 +152,7 @@ def export_paper_table_ii(out_dir: Optional[Path] = None) -> pd.DataFrame:
         for model in PAPER_TABLE_II
     }
     df = metrics_dict_to_table_ii(nested)
-    _write_table(df, out_dir / "table_ii_paper_reported")
+    _write_table(df, out_dir / "table2_paper")
     return df
 
 
@@ -166,22 +162,21 @@ def _write_table(df: pd.DataFrame, stem: Path) -> None:
     df.to_markdown(stem.with_suffix(".md"), index=False)
     try:
         tex = df.to_latex(index=False, float_format="%.2f")
-    except Exception:  # noqa: BLE001
+    except Exception:
         tex = df.to_string(index=False)
     stem.with_suffix(".tex").write_text(tex, encoding="utf-8")
-    logger.info("Wrote table %s.{csv,md,tex}", stem.name)
+    logger.info("Wrote %s.{csv,md,tex}", stem.name)
 
 
 def compare_with_paper(
     all_metrics: Dict[str, Dict[str, Dict[str, float]]],
     out_dir: Optional[Path] = None,
 ) -> pd.DataFrame:
-    """Build absolute and percentage differences vs paper Table II."""
+    """Absolute / relative diffs vs paper Table II (written under results/, gitignored)."""
     out_dir = Path(out_dir or PROJECT_ROOT / "results" / "tables")
     ensure_dirs(out_dir)
     rows = []
     for model_key, display in MODEL_DISPLAY.items():
-        # accept either key form
         model_metrics = all_metrics.get(display) or all_metrics.get(model_key) or {}
         for metric in METRIC_ORDER:
             for se in SUBSET_ORDER:
@@ -203,8 +198,8 @@ def compare_with_paper(
                     }
                 )
     df = pd.DataFrame(rows)
-    _write_table(df, out_dir / "comparison_vs_paper")
-    save_json(rows, PROJECT_ROOT / "results" / "metrics" / "comparison_vs_paper.json")
+    _write_table(df, out_dir / "paper_diff")
+    save_json(rows, PROJECT_ROOT / "results" / "metrics" / "paper_diff.json")
     return df
 
 
@@ -227,15 +222,14 @@ def load_all_run_metrics(metrics_dir: Optional[Path] = None) -> Dict[str, Dict[s
 
     metrics_dir = Path(metrics_dir or PROJECT_ROOT / "results" / "metrics")
     result: Dict[str, Dict[str, Dict[str, float]]] = {}
-    skip_names = {"all_metrics.json", "comparison_vs_paper.json", "summary.txt"}
+    skip_names = {"all_metrics.json", "paper_diff.json", "summary.txt", "comparison_vs_paper.json"}
     run_pattern = re.compile(r"^.+_SE\.\d+\.json$", re.IGNORECASE)
 
     for path in sorted(metrics_dir.glob("*.json")):
-        if path.name in skip_names or path.name.startswith("comparison"):
+        if path.name in skip_names or path.name.startswith("comparison") or path.name.startswith("paper_diff"):
             continue
-        # Prefer explicit per-run files: model_SE.N.json
         if not run_pattern.match(path.name):
-            logger.debug("Skipping non-run metrics file: %s", path.name)
+            logger.debug("Skipping %s", path.name)
             continue
         data = json.loads(path.read_text(encoding="utf-8"))
         if not all(k in data for k in ("model", "subset", "Accuracy", "Precision", "Recall", "F-score")):

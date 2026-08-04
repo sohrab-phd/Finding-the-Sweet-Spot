@@ -1,6 +1,6 @@
-# Finding the Sweet Spot — Relation Extraction experiments
+# Finding the Sweet Spot — relation extraction experiments
 #
-# Install a CUDA build of PyTorch first when a GPU is available, e.g.:
+# Prefer a CUDA torch build when a GPU is available:
 #   pip install torch --index-url https://download.pytorch.org/whl/cu124
 #
 torch>=2.0.0

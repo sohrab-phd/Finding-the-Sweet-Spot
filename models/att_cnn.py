@@ -8,12 +8,7 @@ import torch.nn.functional as F
 
 
 class AttCNN(nn.Module):
-    """
-    Att-CNN: sentence convolution + entity-aware word attention + MLP classifier.
-
-    Architecture follows Shen & Huang (COLING 2016) as summarized in the
-    target paper §II-A.1.
-    """
+    """Att-CNN (Shen & Huang, COLING 2016): CNN + entity-aware attention."""
 
     def __init__(
         self,

@@ -29,7 +29,7 @@ desktop.ini
 *.bak
 *.cache
 
-# SemEval raw download (auto-fetched by reproduce.py)
+# SemEval raw download (fetched by run_experiments.py)
 data/raw/*
 !data/raw/.gitkeep
 
@@ -39,22 +39,27 @@ data/processed/test.json
 data/processed/vocab/
 data/processed/meta.json
 
-# Keep Algorithm 1 subset index files for exact sampling reproducibility
+# Keep SE.1–SE.8 index files for fixed sampling
 !data/processed/subsets/
 !data/processed/subsets/**
 
-# Trained checkpoints (large; regenerate with reproduce.py)
+# Checkpoints (large; retrain locally)
 results/checkpoints/
 
-# Local embedding downloads (gensim / word2vec)
+# Local embedding downloads
 *.bin
 *.gz
 GoogleNews*
 glove.*
 
-# Regenerable comparison summary
+# Regenerable local diffs / summaries
 results/metrics/summary.txt
+results/metrics/paper_diff.json
+results/tables/paper_diff.*
+results/figures/*_paper.png
+results/figures/*_paper.pdf
+results/figures/*.pdf
 
-# Hugging Face / torch local caches (never commit)
+# Caches
 .cache/
 **/lightning_logs/

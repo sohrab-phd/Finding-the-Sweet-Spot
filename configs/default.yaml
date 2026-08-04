@@ -1,4 +1,4 @@
-# Global reproduction settings for "Finding the Sweet Spot"
+# Global settings — Finding the Sweet Spot
 seed: 42
 project_root: .
 data_raw: data/raw
@@ -10,7 +10,7 @@ num_relations: 19
 train_size: 8000
 test_size: 2717
 
-# Algorithm 1 subset fractions (Table I)
+# Subset fractions (Table I)
 subset_fractions:
   SE.1: 0.0078125   # 1/128 → 62
   SE.2: 0.015625    # 1/64  → 125
@@ -21,7 +21,6 @@ subset_fractions:
   SE.7: 0.5         # 1/2   → 4000
   SE.8: 1.0         # 1     → 8000
 
-# Expected instance counts from Table I
 subset_sizes:
   SE.1: 62
   SE.2: 125
@@ -32,7 +31,6 @@ subset_sizes:
   SE.7: 4000
   SE.8: 8000
 
-# Evaluation
 metrics:
   - accuracy
   - precision
@@ -40,9 +38,7 @@ metrics:
   - f1
 average: macro
 
-# Diminishing-returns threshold shown in Figures 1–2
+# Vertical line in Fig. 1–2
 threshold_fraction: 0.5
 
-# Device: auto picks CUDA when a CUDA-enabled PyTorch build is installed
 device: cuda  # cuda | auto | cpu
-

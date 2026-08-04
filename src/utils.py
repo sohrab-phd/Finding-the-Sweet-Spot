@@ -1,4 +1,4 @@
-"""Shared utilities: seeding, config loading, paths, logging."""
+"""Helpers: seeds, configs, paths, logging."""
 
 from __future__ import annotations
 
@@ -22,10 +22,9 @@ def get_project_root() -> Path:
 def setup_logging(level: int = logging.INFO) -> logging.Logger:
     logging.basicConfig(
         level=level,
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-        datefmt="%H:%M:%S",
+        format="%(levelname)s %(name)s: %(message)s",
     )
-    return logging.getLogger("reproduce")
+    return logging.getLogger("run_experiments")
 
 
 def load_yaml(path: Union[str, Path]) -> Dict[str, Any]:
@@ -35,12 +34,10 @@ def load_yaml(path: Union[str, Path]) -> Dict[str, Any]:
 
 
 def load_config(model: Optional[str] = None) -> Dict[str, Any]:
-    """Load default config, optionally merged with a model-specific config."""
     cfg = load_yaml(PROJECT_ROOT / "configs" / "default.yaml")
     if model:
         model_path = PROJECT_ROOT / "configs" / f"{model}.yaml"
         if not model_path.exists():
-            # allow aliases
             aliases = {
                 "att-cnn": "att_cnn",
                 "att_cnn": "att_cnn",
@@ -59,7 +56,6 @@ def load_config(model: Optional[str] = None) -> Dict[str, Any]:
 
 
 def set_seed(seed: int = 42) -> None:
-    """Make experiments as deterministic as possible."""
     os.environ["PYTHONHASHSEED"] = str(seed)
     random.seed(seed)
     np.random.seed(seed)
@@ -96,15 +92,7 @@ def torch_initial_seed() -> int:
 
 
 def get_device(preference: str = "auto", require_cuda: bool = False):
-    """
-    Resolve the torch device.
-
-    preference:
-      - "auto"  → CUDA if available, else CPU
-      - "cuda"  → CUDA (raises if unavailable when require_cuda, else warns + CPU)
-      - "cpu"   → force CPU
-      - "cuda:N"→ specific GPU index
-    """
+    """Resolve torch device from preference (auto / cuda / cpu / cuda:N)."""
     import logging
 
     import torch
@@ -113,35 +101,30 @@ def get_device(preference: str = "auto", require_cuda: bool = False):
     pref = (preference or "auto").lower().strip()
 
     if pref == "cpu":
-        logger.info("Using device: cpu (forced)")
+        logger.info("Using CPU")
         return torch.device("cpu")
 
     cuda_ok = torch.cuda.is_available()
     if pref.startswith("cuda"):
         if not cuda_ok:
             msg = (
-                "CUDA was requested but torch.cuda.is_available() is False. "
-                "Install a CUDA build of PyTorch, e.g.:\n"
+                "CUDA requested but unavailable. "
+                "Install a CUDA PyTorch build, e.g.:\n"
                 "  pip install torch --index-url https://download.pytorch.org/whl/cu124"
             )
             if require_cuda or pref == "cuda":
-                # Strict for explicit --device cuda
                 raise RuntimeError(msg)
-            logger.warning("%s Falling back to CPU.", msg)
+            logger.warning("%s Using CPU.", msg)
             return torch.device("cpu")
         device = torch.device(pref if ":" in pref else "cuda")
         _log_cuda_device(device, logger)
         return device
 
-    # auto
     if cuda_ok:
         device = torch.device("cuda")
         _log_cuda_device(device, logger)
         return device
-    logger.warning(
-        "CUDA not available (CPU-only PyTorch or no driver). Using CPU. "
-        "For GPU: pip install torch --index-url https://download.pytorch.org/whl/cu124"
-    )
+    logger.warning("No CUDA; using CPU")
     return torch.device("cpu")
 
 
@@ -152,7 +135,7 @@ def _log_cuda_device(device, logger) -> None:
     name = torch.cuda.get_device_name(idx)
     mem_gb = torch.cuda.get_device_properties(idx).total_memory / (1024**3)
     logger.info(
-        "Using device: %s | GPU: %s | Memory: %.1f GiB | CUDA: %s | torch: %s",
+        "%s | %s | %.1f GiB | CUDA %s | torch %s",
         device,
         name,
         mem_gb,
@@ -162,7 +145,6 @@ def _log_cuda_device(device, logger) -> None:
 
 
 def batch_to_device(batch: Dict[str, Any], device, non_blocking: bool = True) -> Dict[str, Any]:
-    """Move all tensor values in a batch dict to `device`."""
     import torch
 
     out = {}
@@ -191,7 +173,6 @@ def load_json(path: Union[str, Path]) -> Any:
         return json.load(f)
 
 
-# SemEval-2010 Task 8 relation labels (19-way)
 RELATION_LABELS = [
     "Cause-Effect(e1,e2)",
     "Cause-Effect(e2,e1)",

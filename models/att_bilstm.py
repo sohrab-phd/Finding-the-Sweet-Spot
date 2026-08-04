@@ -7,13 +7,7 @@ import torch.nn as nn
 
 
 class AttBiLSTM(nn.Module):
-    """
-    Att-BiLSTM: embedding → BiLSTM → attention → softmax.
-
-    Follows Zhou et al. (ACL 2016) and the target paper §II-A.2:
-    BiLSTM outputs are merged by element-wise sum, attention forms a
-    sentence vector, log-likelihood / cross-entropy trains the classifier.
-    """
+    """Att-BiLSTM (Zhou et al., ACL 2016): BiLSTM + attention over hidden states."""
 
     def __init__(
         self,

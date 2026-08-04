@@ -85,7 +85,7 @@ def ensure_nltk() -> None:
     for pkg in ("punkt", "punkt_tab", "averaged_perceptron_tagger", "averaged_perceptron_tagger_eng"):
         try:
             nltk.download(pkg, quiet=True)
-        except Exception:  # noqa: BLE001
+        except Exception:
             pass
 
 
@@ -195,7 +195,7 @@ def load_word_embeddings(
 
         logger.info("Loading embeddings via gensim: %s (may take a while)", embedding_name)
         vectors = api.load(embedding_name)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         logger.warning("gensim download failed (%s); trying local fallbacks", exc)
 
     if vectors is None:
@@ -217,7 +217,7 @@ def load_word_embeddings(
                     vectors = KeyedVectors.load_word2vec_format(str(path), binary=False, no_header=True)
                 logger.info("Loaded embeddings from %s", path)
                 break
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 logger.warning("Failed loading %s: %s", path, exc)
 
     if vectors is None:

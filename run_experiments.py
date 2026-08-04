@@ -1,16 +1,5 @@
 #!/usr/bin/env python
-"""
-Single-command reproduction entry point for:
-  Finding the Sweet Spot: An Empirical Study on Dataset Size,
-  Performance, and Efficiency in Relation Extraction
-
-Usage examples:
-  python reproduce.py                     # full pipeline
-  python reproduce.py --stage data        # download + partition only
-  python reproduce.py --stage tables      # regenerate tables/figures from saved metrics
-  python reproduce.py --models att_cnn --subsets SE.8
-  python reproduce.py --quick             # fewer epochs (smoke test)
-"""
+"""Run the Sweet Spot RE experiments (data → train → tables/figures)."""
 
 from __future__ import annotations
 
@@ -21,7 +10,6 @@ import time
 from pathlib import Path
 from typing import Dict, List, Optional
 
-# Ensure project root is on sys.path
 ROOT = Path(__file__).resolve().parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -42,53 +30,35 @@ from src.training import run_experiment
 from src.utils import ensure_dirs, load_config, save_json, set_seed, setup_logging
 from src.visualization import plot_figure1, plot_figure2, plot_paper_reference_figures
 
-logger = logging.getLogger("reproduce")
+logger = logging.getLogger("run_experiments")
 
 ALL_MODELS = ["att_cnn", "att_bilstm", "rbert", "mtb"]
 ALL_SUBSETS = [f"SE.{i}" for i in range(1, 9)]
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Reproduce Sweet Spot RE experiments")
+    p = argparse.ArgumentParser(description="Finding the Sweet Spot — RE experiments")
     p.add_argument(
         "--stage",
         choices=["all", "data", "train", "tables", "report"],
         default="all",
-        help="Pipeline stage to run",
+        help="Which stage to run",
     )
-    p.add_argument(
-        "--models",
-        nargs="+",
-        default=ALL_MODELS,
-        help="Models to train (att_cnn att_bilstm rbert mtb)",
-    )
-    p.add_argument(
-        "--subsets",
-        nargs="+",
-        default=ALL_SUBSETS,
-        help="Subsets to train (SE.1 … SE.8)",
-    )
+    p.add_argument("--models", nargs="+", default=ALL_MODELS)
+    p.add_argument("--subsets", nargs="+", default=ALL_SUBSETS)
     p.add_argument("--seed", type=int, default=42)
-    p.add_argument(
-        "--quick",
-        action="store_true",
-        help="Reduce epochs for a smoke-test run",
-    )
+    p.add_argument("--quick", action="store_true", help="Fewer epochs (debug)")
     p.add_argument(
         "--skip-embeddings",
         action="store_true",
-        help="Skip downloading GoogleNews embeddings (random init)",
+        help="Random word vectors instead of GoogleNews",
     )
-    p.add_argument(
-        "--device",
-        default="cuda",
-        help="torch device: cuda (default), auto, cpu, or cuda:0",
-    )
+    p.add_argument("--device", default="cuda", help="cuda | auto | cpu | cuda:0")
     return p.parse_args()
 
 
 def stage_data(cfg: dict) -> dict:
-    logger.info("=== Stage: data download / parse / Algorithm 1 partitioning ===")
+    logger.info("Preparing SemEval data and SE.1–SE.8 subsets")
     set_seed(int(cfg.get("seed", 42)))
     data = prepare_dataset(
         seed=int(cfg.get("seed", 42)),
@@ -116,12 +86,11 @@ def stage_train(
     quick: bool = False,
     skip_embeddings: bool = False,
 ) -> Dict[str, Dict[str, Dict[str, float]]]:
-    logger.info("=== Stage: training ===")
+    logger.info("Training")
     set_seed(seed)
     data = load_processed()
     train, test, subset_idx = data["train"], data["test"], data["subsets"]
 
-    # Shared vocab / embeddings for neural models
     need_neural = any(m in models for m in ("att_cnn", "att_bilstm"))
     word_vocab = pos_vocab = emb_matrix = None
     if need_neural:
@@ -134,7 +103,7 @@ def stage_train(
             dim = int(neural_cfg.get("embedding_dim", 300))
             emb_matrix = np.random.uniform(-0.05, 0.05, size=(len(word_vocab), dim)).astype("float32")
             emb_matrix[0] = 0.0
-            logger.info("Using random embeddings (skip_embeddings/quick)")
+            logger.info("Random embeddings (--skip-embeddings / --quick)")
         else:
             emb_matrix = load_word_embeddings(
                 word_vocab,
@@ -156,7 +125,7 @@ def stage_train(
 
         for subset in subsets:
             if subset not in subset_idx:
-                raise KeyError(f"Missing subset indices for {subset}; run --stage data first")
+                raise KeyError(f"No indices for {subset}; run --stage data first")
             train_subset = get_subset_examples(train, subset_idx[subset])
             t0 = time.time()
             result = run_experiment(
@@ -173,7 +142,7 @@ def stage_train(
             save_run_metrics(model_name, subset, metrics)
             all_metrics[display][subset] = metrics
             logger.info(
-                "%s %s → Acc=%.4f P=%.4f R=%.4f F=%.4f (%.1fs)",
+                "%s %s  Acc=%.4f  P=%.4f  R=%.4f  F=%.4f  (%.1fs)",
                 display,
                 subset,
                 metrics["Accuracy"],
@@ -182,14 +151,13 @@ def stage_train(
                 metrics["F-score"],
                 time.time() - t0,
             )
-            # free GPU memory between runs
             del result
             try:
                 import torch
 
                 if torch.cuda.is_available():
                     torch.cuda.empty_cache()
-            except Exception:  # noqa: BLE001
+            except Exception:
                 pass
 
     save_json(all_metrics, ROOT / "results" / "metrics" / "all_metrics.json")
@@ -197,12 +165,11 @@ def stage_train(
 
 
 def stage_tables(all_metrics: Optional[dict] = None) -> None:
-    logger.info("=== Stage: tables & figures ===")
+    logger.info("Writing tables and figures")
     if all_metrics is None:
         all_metrics = load_all_run_metrics()
         if not all_metrics:
-            # Fall back to paper reference so artifacts always exist
-            logger.warning("No run metrics found — generating paper-reference tables/figures only")
+            logger.warning("No metrics on disk; writing paper-reference plots only")
             export_paper_table_ii()
             plot_paper_reference_figures()
             data = load_processed() if (ROOT / "data" / "processed" / "meta.json").exists() else None
@@ -226,18 +193,14 @@ def stage_tables(all_metrics: Optional[dict] = None) -> None:
 
 
 def stage_report() -> None:
-    """Write a short metrics comparison summary under results/metrics/."""
-    logger.info("=== Stage: validation report refresh ===")
+    logger.info("Refreshing comparison summary")
     all_metrics = load_all_run_metrics()
     if not all_metrics:
-        logger.warning("No metrics to report yet")
+        logger.warning("No metrics to report")
         return
     df = compare_with_paper(all_metrics)
     summary_path = ROOT / "results" / "metrics" / "summary.txt"
-    lines = [
-        "Reproduction vs paper (absolute difference summary)",
-        "=" * 60,
-    ]
+    lines = ["Reproduced vs paper Table II", "=" * 40]
     if len(df):
         lines.append(f"Mean |AbsDiff|: {df['AbsDiff'].abs().mean():.4f}")
         lines.append(f"Max  |AbsDiff|: {df['AbsDiff'].abs().max():.4f}")
@@ -258,12 +221,11 @@ def main() -> None:
         ROOT / "results" / "metrics",
     )
 
-    # Resolve / validate GPU early so BERT training does not silently fall back to CPU
     from src.utils import get_device
 
     try:
         resolved = get_device(args.device, require_cuda=(args.device.lower().startswith("cuda")))
-        logger.info("Runtime device resolved to: %s", resolved)
+        logger.info("Device: %s", resolved)
     except RuntimeError as exc:
         logger.error("%s", exc)
         sys.exit(1)
@@ -274,7 +236,6 @@ def main() -> None:
     set_seed(args.seed)
 
     models = [m.lower().replace("-", "_") for m in args.models]
-    # normalize aliases
     alias = {
         "attcnn": "att_cnn",
         "att_cnn": "att_cnn",
@@ -307,7 +268,7 @@ def main() -> None:
     if args.stage in ("all", "report", "tables"):
         stage_report()
 
-    logger.info("Done. Results under %s", ROOT / "results")
+    logger.info("Done → %s", ROOT / "results")
 
 
 if __name__ == "__main__":

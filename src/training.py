@@ -429,7 +429,7 @@ def _load_pretrained_with_fallback(loader, name: str, **kwargs):
     """
     try:
         return loader(name, local_files_only=True, **kwargs)
-    except Exception as local_exc:  # noqa: BLE001
+    except Exception as local_exc:
         logger.warning(
             "Local load of %s failed (%s); retrying with Hub download…",
             name,

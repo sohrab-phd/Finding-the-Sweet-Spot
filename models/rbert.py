@@ -8,12 +8,7 @@ from transformers import BertConfig, BertModel
 
 
 class RBERT(nn.Module):
-    """
-    R-BERT architecture:
-      - Insert entity markers around e1 / e2
-      - Average BERT hidden states over each entity span
-      - Concatenate [CLS] + avg(e1) + avg(e2) → FC → softmax
-    """
+    """R-BERT (Wu & He, CIKM 2019): BERT + entity markers + span averages."""
 
     def __init__(
         self,

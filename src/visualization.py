@@ -1,4 +1,4 @@
-"""Reproduce Figures 1 and 2 from the paper."""
+"""Learning-curve plots (Fig. 1 accuracy, Fig. 2 F-score)."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from typing import Dict, Optional
 import matplotlib.pyplot as plt
 import numpy as np
 
-from src.evaluation import MODEL_DISPLAY, PAPER_TABLE_II, SUBSET_ORDER
+from src.evaluation import PAPER_TABLE_II, SUBSET_ORDER
 from src.utils import PROJECT_ROOT, ensure_dirs
 
 logger = logging.getLogger(__name__)
@@ -25,7 +25,6 @@ FRACTIONS = {
     "SE.8": 1.0,
 }
 
-# Visual style matching paper Figures 1–2
 STYLE = {
     "Att-CNN": {"color": "#1f77b4", "marker": "o", "label": "Att-CNN"},
     "Att-BiLSTM": {"color": "#ff7f0e", "marker": "*", "label": "Att-BLSTM", "markersize": 10},
@@ -98,7 +97,7 @@ def plot_figure1(
         all_metrics,
         metric="Accuracy",
         ylabel="Accuracy",
-        out_path=out_dir / "figure1_accuracy.png",
+        out_path=out_dir / "fig1_accuracy.png",
         title="Impact of training data size on Accuracy",
     )
 
@@ -112,13 +111,13 @@ def plot_figure2(
         all_metrics,
         metric="F-score",
         ylabel="F score",
-        out_path=out_dir / "figure2_fscore.png",
+        out_path=out_dir / "fig2_fscore.png",
         title="Impact of training data size on F-score",
     )
 
 
 def plot_paper_reference_figures(out_dir: Optional[Path] = None) -> None:
-    """Plot Figures 1–2 from paper-reported Table II (reference curves)."""
+    """Curves from the paper's Table II (local reference only)."""
     out_dir = Path(out_dir or PROJECT_ROOT / "results" / "figures")
     nested = {
         model: {
@@ -131,13 +130,13 @@ def plot_paper_reference_figures(out_dir: Optional[Path] = None) -> None:
         nested,
         "Accuracy",
         "Accuracy",
-        out_dir / "figure1_accuracy_paper_reference.png",
-        title="Figure 1 (paper-reported values)",
+        out_dir / "fig1_accuracy_paper.png",
+        title="Fig. 1 (paper values)",
     )
     plot_learning_curve(
         nested,
         "F-score",
         "F score",
-        out_dir / "figure2_fscore_paper_reference.png",
-        title="Figure 2 (paper-reported values)",
+        out_dir / "fig2_fscore_paper.png",
+        title="Fig. 2 (paper values)",
     )

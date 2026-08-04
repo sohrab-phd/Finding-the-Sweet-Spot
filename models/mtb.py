@@ -9,17 +9,10 @@ from transformers import BertConfig, BertModel
 
 class MTBRelationClassifier(nn.Module):
     """
-    Supervised relation classifier using the BERT EM architecture from
-    Baldini Soares et al. (ACL 2019) "Matching the Blanks":
+    BERT entity-marker classifier (Soares et al., ACL 2019).
 
-      - Entity marker tokens around both entities
-      - Fixed-length relation representation = concat(h_[E1], h_[E2])
-        (entity-start states)
-      - Linear classifier on top
-
-    Full unsupervised MTB pretraining on entity-linked Wikipedia is NOT
-    reproduced here. We fine-tune bert-base-uncased with the MTB
-    entity-marker input format (BERT EM).
+    Uses concat of entity-start states; supervised fine-tuning only
+    (no Wikipedia Matching-the-Blanks pretraining).
     """
 
     def __init__(
